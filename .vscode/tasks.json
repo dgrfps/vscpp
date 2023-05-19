@@ -1,0 +1,46 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Build Project",
+			"command": "D:/libs/mingw64/bin/g++.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-std=c++23",
+				"-g",
+				"${workspaceFolder}\\source\\*.cpp",
+				"-o",
+				"${workspaceFolder}\\output\\program.exe"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			}
+		},
+		{
+			"type": "shell",
+			"label": "Run",
+			"command": "${workspaceFolder}\\output\\program.exe",
+			"group": {
+				"kind": "test"
+			}
+		},
+		{
+			"type": "shell",
+			"label": "Build And Run",
+			"dependsOn": ["Build Project", "Run"],
+			"dependsOrder": "sequence",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
